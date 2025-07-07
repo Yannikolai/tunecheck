@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✦ TUNECHECK</title>
+    <link rel="stylesheet" href="/css/tunecheck.css">
+    <script src="/js/main.js" defer></script>
+
+</head>
+<body>
+<div class="navbar">
+    <nav>
+        <div class="navcontainer">
+            <h1>✦ TUNECHECK</h1>
+            <div class="navbar-user-profile" style="display: none;">
+                <img id="userProfilePic" class="profile-pic" src="" alt="User Profile">
+                <span id="userProfileName" class="profile-name">Username</span>
+            </div>
+            <div class="logout-container" style="display: none;">
+                <button id="logout-button">Logout</button>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="content">
+<div class="hero">
+    <div class="container">
+        <h1>Check out concerts<br>based on your music taste</h1>
+        <p>Tune into your town with Spotify</p>
+        <div class="form-container">
+            <div class="input-container">
+                <input type="text" class="form-field-search" id="locationInput" placeholder="Enter another location" style="display:none;">
+                <button class="login-button nav-login-button" style="display:block;">Login via Spotify</button>
+            </div>
+            <div class="button-container">
+                <button id="fetchEventsButton" class="other-button" style="display:none;" >Get Events</button>
+                <button id="user-info-button" class="other-button" style="display:none;">Your Taste</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="login-field">
+
+</div>
+<div class="dimmed-background"></div>
+
+<div id="events-container" class="container" style="display:none;">
+    <div class="event-head" style="display: flex; align-items: center; justify-content: space-between;">
+        <div>
+            <h2>My Events</h2>
+        </div>
+        <div>
+            <button class="sort-button" onclick="sortAndDisplayEventsByDate()">Sort Events by Date</button> <!-- More visually appealing than Select with Options -->
+            <button id="sort-genre-button" class="sort-button" onclick="displayOriginalOrder()">Sort Events by Genre</button>
+        </div>
+    </div>
+    <ul id="events-list">
+    </ul>
+</div>
+
+<div id="user-info-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Your taste in music</h1>
+        <h2>Top Artists</h2>
+        <div id="modal-top-artists-container" style="display: none;">
+        </div>
+        <div id="modal-top-genres-container" style="display: none;">
+            <h2>Top Genres</h2>
+            <ul id="modal-top-genres"></ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<footer style="background-color: #03010d; color: white; text-align: center; padding: 20px 0; ">
+    <p>&copy; 2024 ✦ TUNECHECK. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #010003 10%, #1a062c 90%);
+}
+
+.content {
+    flex: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* Styles for the navbar wrapper */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 600;
+    background-color: #03010d;
+    color: white;
+    height: 75px;
+}
+
+/* Styles for the container within the nav */
+.navbar .navcontainer {
+    width: 100%; /* Ensure the container takes full width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centers children vertically */
+    padding: 10px; /* Adds padding on both ends of the nav */
+    color: white; /* Sets the color of text to white */
+}
+
+/* Styles for the title h1 to center it in the page */
+.navbar h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Arial Black', sans-serif; /* Sets the font */
+}
+
+.navcontainer::after {
+    content: "";
+    flex-grow: 1; /* This will push everything to the left and right appropriately */
+}
+
+.logout-container {
+    display: flex; 
+    position: absolute;
+    right: 20px;
+}
+
+.navbar-user-profile {
+    display: flex; 
+    position: absolute;
+    right: 110px;
+}
+
+
+/* Additional styles if needed for the profile picture */
+.profile-pic {
+    width: 30px; /* Sets a fixed width */
+    height: 30px; /* Sets a fixed height */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without being stretched */
+}
+
+/* Additional styles if needed for the profile name */
+.profile-name {
+    margin-left: 8px; /* Adds some space between the image and the text */
+    font-size: 14px;
+    margin-top: 8px; /* Sets the font size */
+}
+
+.form-field-search {
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    width: auto;
+}
+
+.hero {
+    position: relative;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('hero.avif');
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+.form-field {
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.login-button {
+    background-color: #4b3c56;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: auto;
+}
+
+.login-button:hover {
+    background-color: #3a2c45;
+}
+
+.form-field, .login-button {
+    width: calc(35% - 40px); /* Both to have same width */
+}
+
+.login-field {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: #03010d;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(230, 230, 230, 0.292);
+    display: none;
+    width: 400px;
+    height: 600px;
+    position: fixed; /* Stay in place during scroll */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the element */
+    z-index: 1001; /* Make sure it's above other content */
+}
+
+.dimmed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    z-index: 1000; /* Below the login field, but above other content */
+    display: none; /* Start hidden */
+}
+
+.event-entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.event-entry img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.event-details {
+    color: white;
+}
+
+.event-link {
+    color: white;
+}
+
+.event-entry iframe {
+    position: absolute;
+    top: 15%;
+    right: 20px;
+    border: none; /* Remove border */
+}
+
+#events-list .container:not(:last-child) { 
+    border-bottom: 1px solid white; /* Thin white lines between containers */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+#events-list{
+    list-style: none;
+    padding-left: 0;
+}
+
+.container img {
+    box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.5),  -5px -5px 10px rgba(40, 8, 79, 0.4); /* Neumorphic shadow */
+    transition: transform 0.3s ease; /* Smooth transition effect for scaling */
+}
+
+.container img:hover {
+    transform: scale(1.12); /* Scale up the image slightly on hover */
+}
+
+#events-container {
+    color: white; /* This will apply to text inside the container */
+    /* Additional container styling */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-open {
+    overflow: hidden;
+  }
+
+.modal-content {
+    position: fixed;
+    background-color: #03010d;
+    color: white;
+    box-shadow: 0 0 10px rgba(230, 230, 230, 0.292);
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    overflow-y: auto; /* Allows vertical scrolling if content overflows */
+    width: 600px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    max-height: 90vh; 
+}
+
+#modal-top-artists-container iframe {
+    width: 90%; 
+    height: 80px;
+    margin: 0 auto; 
+    margin-bottom: 10px;
+    display: block; 
+    border: 0; 
+}
+
+.modal-content h1,
+.modal-content h2 {
+    text-align: center;
+    margin-top: 20px; 
+}
+
+#modal-top-genres-container {
+    display: none;
+    text-align: center;
+    text-transform: capitalize; /* Capitalize each word */
+}
+
+#modal-top-genres {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.close {
+    float: right;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#fetchEventsButton {
+    margin-right: 10px;
+}
+
+.other-button {
+    background-color: #4b3c56;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 185px;
+}
+
+.other-button:hover {
+    background-color: #3a2c45;
+}
+
+.sort-button {
+    background-color: #251a2c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 185px;
+}
+
+#sort-genre-button {
+    margin-left: 5px;
+
+}
+
+.sort-button:hover {
+    background-color: #1a1120;
+}
